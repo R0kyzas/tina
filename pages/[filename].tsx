@@ -4,6 +4,7 @@ import { Blocks } from "../components/blocks-renderer";
 import { useTina } from "tinacms/dist/react";
 import { Layout } from "../components/layout";
 import { client } from "../tina/__generated__/client";
+import { revalidatePath } from "next/cache";
 
 export default function HomePage(
   props: InferGetStaticPropsType<typeof getStaticProps>
@@ -27,6 +28,7 @@ export const getStaticProps = async ({ params }) => {
   };
   return {
     props: JSON.parse(JSON.stringify(props)) as typeof props,
+    revalidatePath: 10
   };
 };
 
