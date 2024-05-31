@@ -28,7 +28,6 @@ export const getStaticProps = async ({ params }) => {
   };
   return {
     props: JSON.parse(JSON.stringify(props)) as typeof props,
-    revalidatePath: 10
   };
 };
 
